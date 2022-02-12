@@ -17,8 +17,10 @@ def gen():
     return randint(1,1000), randint(1,1000)
 
 def gen_even():
-    return randrange(2,200000,2), randrange(2,200000,2)
+    return randrange(2,2002,2), randrange(2,2002,2)
 
+def genx4():
+    return randint(1,1000)*4, randint(1,1000)*4
 
 def gen_choose(choose):
     return randint(1,choose), randint(1, choose)
@@ -59,15 +61,15 @@ def recursive(n, d):
     return recursive(nn, nd), f'{n}/{d} Common DM: {i}'
 
 def big_O(n, d):
-    list = [f'{n} / {d} OG']
+    list_ = [f'{n} / {d} OG']
     for iteration in range(2 ,min(n, d)+1):
         if n % iteration == 0:
             if d % iteration == 0:
-                list.append(f'{n//iteration} / {d//iteration} Common D: {iteration}')
-    return list
+                list_.append(f'{n//iteration} / {d//iteration} Common D: {iteration}')
+    return list_
 
 # x,y = gen()
-# print(recursive(x, y))
+# print(recursive(206, 202))
 # print(big_O(x, y))
 
 # ----------------------------------
@@ -82,7 +84,7 @@ GENERAL:
     for n and d, with random.randint (ie n = randint(1,1000) | d = randint(1,1000))
     formulas is actually pretty simple 
         probability * sample_size = outcome (same as above but what causes that probability)
-        probability ROUGHLY = 6.08 (but depends on range ratio)
+        probability ROUGHLY = .608 (but depends on range ratio)
         
 MULTIPLYING N TO CHANGE RESULTS:
     out of the random trials I have tried dividing the range from the numerator doesnt do much unless it is divided
@@ -96,8 +98,10 @@ MULTIPLYING N TO CHANGE RESULTS:
             the greater the ratio between the multiplied fraction's n/d the closer to the further from real
             ex: 1/2 is the lowest ratio multiplier while 2/3 is the highest
             
-        if the initial range is not big enough the results will be higher and the above trends trend to being 
-        seen the higher the inital range is to begin best results at 100+
+        if the initial range is not big enough the results will be higher and the above trends, trend to being 
+        seen, the higher the inital range is to begin best results at 100+
+        
+If you are counting at least 2 common denominators or more the probability is roughly .838
                 
     '''
 
@@ -108,7 +112,7 @@ def pre_solved_calc(choose, pre_sample):
     for i in range(pre_sample):
         x,y = gen_choose_half_n(choose)
         thing = big_O(x,y)
-        if len(thing) == 1:
+        if len(thing) <= 2:
             count += 1
     return count
 
@@ -119,6 +123,24 @@ def pre_solved_avg(range_, pre_sample, meta_sample):
     # meta_sample is the amount of times the count (from pre_sample) is performed to give a mean of all counts
     list_ = [pre_solved_calc(range_, pre_sample) for i in range(meta_sample)]
     print(list_)
-    return sum(list_)/len(list_)
+    x = sum(list_) / len(list_)
+    return f'{x} \nPercent of samples with 2 cds or less: {(x/pre_sample)*100}%'
 
 #print(pre_solved_avg(10000, 10 ,1000))
+
+
+c1 = \
+'''
+from frac import recursive
+recursive(206,202)
+'''
+
+c2 = \
+'''
+from frac import big_O
+big_O(206,202)
+'''
+
+
+# t1 = timeit(c1, number=10**5)
+# t2 = timeit(c2, number=10**5)

@@ -38,6 +38,8 @@ def inputer():
     solution_functions=input()
     print('\nPlease type in desired sample size, int only:')
     sample_size = input()
+    sample_size = [i for i in sample_size if i.isdigit()]
+    sample_size = ''.join(sample_size)
     return import_modules, problem_gen, solution_functions, sample_size
 
 #MAIN()
