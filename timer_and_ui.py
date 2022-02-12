@@ -36,7 +36,9 @@ def inputer():
     print('If you type multiple functions they will be timed according to the order they are inputed here.')
     print('Example:\ntwo_sum.BIG_O\ntwo_sum.hashtable two_sum.BIG_O\n')
     solution_functions=input()
-    return import_modules, problem_gen, solution_functions
+    print('\nPlease type in desired sample size, int only:')
+    sample_size = input()
+    return import_modules, problem_gen, solution_functions, sample_size
 
 #MAIN()
 

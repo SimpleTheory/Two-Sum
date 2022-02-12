@@ -1,0 +1,14 @@
+worst possible outcome
+
+
+diff solutions ideas
+
+create an indep sum var and just add it and append to new list
+()
+[1 2 3]
+
+(0)+1 = 1 (1)
+(1)+2 = 3 (3)
+(3)+3 = 6 (6)
+
+

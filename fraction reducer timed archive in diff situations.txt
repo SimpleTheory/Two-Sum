@@ -1,0 +1,23 @@
+WITH N/2 *10^6 samples
+
+SIMPLE: ORDERED BY SPEED
+1. frac.big_O() -- 1.587657404000005 seconds
+2. frac.recursive() -- 5.488621877 seconds
+
+COMPARATIVE:
+frac.big_O() was best at 1.587657404000005 seconds
+frac.recursive() lagged behind by +3.900964472999995 sec
+
+with normal gen
+
+SIMPLE: ORDERED BY SPEED
+1. frac.big_O() -- 2.3903738830000023 seconds
+2. frac.recursive() -- 8.184171485 seconds
+
+COMPARATIVE:
+frac.big_O() was best at 2.3903738830000023 seconds
+frac.recursive() lagged behind by +5.793797601999998 sec
+
+An increase of probability by 1 (6.08 -> 5.08) made recursive better by
+approximately 2 sec
+
