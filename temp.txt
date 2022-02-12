@@ -1,4 +1,0 @@
-
-import frac
-gen_returns=frac.genx1000()
-frac.big_O(*gen_returns)
