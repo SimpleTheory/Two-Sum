@@ -1,4 +1,3 @@
-import os, timeit
 
 #function solver formatter to time it
 def solver_functionator(solver_fun_input):
@@ -42,47 +41,6 @@ def inputer():
     sample_size = ''.join(sample_size)
     return import_modules, problem_gen, solution_functions, sample_size
 
-#MAIN()
-
-#gets inputs
-def throw_away():
-    import_modules, problem_gen, solution_functions = inputer()
-
-    #reformats functions to have appropriate input
-    solution_functions = solver_functionator(solution_functions) #reformatting solver functions into appropriate list
-
-
-    #made text for file gen
-    initial_text_for_txt_ANTIQUATED=f'''
-    import {import_modules}, 
-    #gen_returns={problem_gen}
-    '''
-
-
-    #########
-    #made text for timeit function
-    timeit_text=f'''
-    from gen_values import gen return
-    
-    '''
-
-    modded_txt = timeit_text
-    for i in range(len(solution_functions)):
-        modded_txt = modded_txt+solution_functions[i]+'\n'
-
-
-    with open('temp.txt', 'w') as f:
-        f.write(modded_txt)
-    with open('temp.txt', 'r') as f:
-        temp_file_string=f.read()
-
-    print(temp_file_string)
-    os.remove('temp.txt')
-
-    #    print(modded_txt)
-     #   temp_file_string = temp_file.readlines()
-      #  eval(temp_file_string)
-       # temp_file.close()
 
 def de_functionator(gend_fx):
     part=gend_fx.partition('(')
