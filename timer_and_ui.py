@@ -1,5 +1,5 @@
 
-#function solver formatter to time it
+#function solver formatter in order to time it
 def solver_functionator(solver_fun_input):
 #    formatted_solver_fun_list=[]
 #    loop_counter = 1
@@ -13,13 +13,6 @@ def solver_functionator(solver_fun_input):
         for i in range(len(fun_list)):
             fun_list[i]=fun_list[i]+'(*gen_returns)'
     return fun_list
-
-#finishing formatting solver functions to add them to text file
-#    for element in fun_list:
-#        formatted_solver_fun_list.append(f'''print('Time of function #{loop_counter}: ' + timeit.timeit('{element}', number=10000))''')
-#        loop_counter += 1
-#    return formatted_solver_fun_list
-
 
 #Initial UI
 def inputer():
